@@ -1,6 +1,7 @@
 
 import sys
 
+
 def print_salepeople_totals(filename):
     """
     sales_report.py - Generates sales report showing the total number
