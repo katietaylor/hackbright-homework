@@ -8,18 +8,19 @@ salespeople_totals = {}
 # open file
 text = open("sales-report.txt")
 
-# iterate of each line and split in a list
+# iterate of each line, split line into a list, and unpack into variables
 for line in text:
     line = line.rstrip()
-    entries = line.split("|")
+    salesperson, price, melons = line.split("|")
 
-    # create a variable from the list for salesperson and melons sold
-    salesperson = entries[0]
-    melons = int(entries[2])
+    # add salesperson to dictionary with initial melon count and then add to
+    # melon count every time the salesperson is found in the list
+    salespeople_totals[salesperson] = salespeople_totals.get(salesperson, 0
+        ) + int(melons)
 
-    salespeople_totals[salesperson] = salespeople_totals.get(salesperson, 0) + melons
-
+# sort the salespeople alphabetically for easier reading
 salespeople = sorted(salespeople_totals.keys())
 
+# for each salesperson in the dictionary, print their melon counts
 for salesperson in salespeople:
     print "{} sold {} melons".format(salesperson, salespeople_totals[salesperson])
