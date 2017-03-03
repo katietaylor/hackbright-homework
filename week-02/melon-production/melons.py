@@ -35,12 +35,7 @@ class Melon(object):
 class Squash(Melon):
     """Squash"""
 
-    def __init__(self, melon_type):
-        """Initialize melon."""
-
-        super(Squash, self).__init__(melon_type)
-        self.color = "green"
-
     def prep(self):
         robots.cleanerbot.clean(self)
         robots.stickerbot.apply_logo(self)
+        robots.painterbot.paint(self)
